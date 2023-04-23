@@ -10,23 +10,29 @@ A Sudoku board (partially filled) could be valid but is not necessarily solvable
 Only the filled cells need to be validated according to the mentioned rules.
 '''
 
- class Solution:
+class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        rows = [set() for _ in range(9)]
-        columns = [set() for _ in range(9)]
-        block = [[set() for _ in range(3)] for _ in range(3)]
-        for i in range(9):
-            for j in range(9):
-                element = board[i][j]
-                if element == '.':
-                    continue
-                if (element in rows[i]) or (element in columns[j]) or (element in block[i // 3][j // 3]):
+        def valid(arr):
+            s=''.join(arr).replace('.','')
+            return len(s)==len(set(s))
+        def checkrow():
+            for row in board:
+                if not valid(row):
                     return False
-                rows[i].add(element)
-                columns[j].add(element)
-                block[i // 3][j // 3].add(element)
             return True
-            
+        def checkcol():
+            for col in zip(*board):
+                if not valid(col):
+                    return False
+            return True
+        def square():
+            for r in range(0,9,3):
+                for c in range(0,9,3):
+                    nums=[board[r+i][c+j] for i in range(3) for j in range(3)]
+                    if not valid(nums):
+                        return False
+            return True
+        return checkrow() and checkcol() and square()
 '''
 Example 1:
 
