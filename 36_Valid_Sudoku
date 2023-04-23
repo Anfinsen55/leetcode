@@ -10,19 +10,7 @@ A Sudoku board (partially filled) could be valid but is not necessarily solvable
 Only the filled cells need to be validated according to the mentioned rules.
 '''
 
-
-class Solution:
-    def isValidSudoku(self, board: List[List[str]]) -> bool:
-        solution = []
-        for i in range(9):
-            for j in range(9):
-                element = board[i][j]
-                if element != '.':
-                    solution += [(i, element), (element, j), (i // 3, j // 3, element)]
-            return len(solution) == len(set(solution))
-            
-            
-            
+ 
             
 '''
 Example 1:
