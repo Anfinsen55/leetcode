@@ -10,7 +10,9 @@ class Solution:
         string1, string2 = Counter(ransomNote), Counter(magazine)
         if string1 & string2 == string1:
             return True
-            
+        return False
+        
+        
 '''
 Example 1:
 
