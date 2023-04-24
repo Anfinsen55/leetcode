@@ -14,3 +14,12 @@ class Solution:
             elif let in dic:
                 del dic[let]
         return min(dic.values()) if dic else -1
+
+
+
+'''
+Example 1:
+
+Input: s = "leetcode"
+Output: 0
+'''
