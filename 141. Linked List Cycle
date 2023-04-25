@@ -18,7 +18,7 @@ class Solution:
 
         while (head):
             if head.next not in nod:
-                nod[head.next]=2
+                nod[head.next]=1
             else:
                 return True
             head = head.next
