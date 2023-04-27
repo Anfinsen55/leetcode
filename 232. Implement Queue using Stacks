@@ -12,7 +12,6 @@ Notes:
 You must use only standard operations of a stack, which means only push to top, peek/pop from top, size, and is empty operations are valid.
 Depending on your language, the stack may not be supported natively. You may simulate a stack using a list or deque (double-ended queue) as long as you use only a stack's standard operations.
 '''
-
 class MyQueue:
 
     def __init__(self):
@@ -32,7 +31,7 @@ class MyQueue:
     def peek(self) -> int:
         if not self.out_stk:
             while self.in_stk:
-                self.out.stk.append(self.in_stk.pop())
+                self.out_stk.append(self.in_stk.pop())
         return self.out_stk[-1]
 
     def empty(self) -> bool:
